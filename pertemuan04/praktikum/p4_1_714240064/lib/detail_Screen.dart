@@ -1,89 +1,82 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: file_names
+import 'package:flutter/material.dart' as material 
+show BuildContext, Column, Container, CrossAxisAlignment, EdgeInsets, FontWeight, Icon, Icons, Image, MainAxisAlignment, Row, SafeArea, Scaffold, SingleChildScrollView, SizedBox, StatelessWidget, Text, TextAlign, TextStyle, Widget;
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tempat Wisata Bandung',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const DetailScreen(),
-    );
-  }
-}
-
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends material.StatelessWidget {
   const DetailScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            // 1. BAGIAN JUDUL (TITLE)
-            Container(
-              margin: const EdgeInsets.only(top: 16.0),
-              child: const Text(
-                'Ranca Upas',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
-              ),
-            ),
+  material.Widget build(material.BuildContext context) {
+    return material.Scaffold(
+      body: material.SafeArea(
+        child: material.SingleChildScrollView(
+          child: material.Column(
+            crossAxisAlignment: material.CrossAxisAlignment.stretch,
+            children: <material.Widget>[
+              // 1. BAGIAN GAMBAR
+              material.Image.asset('images/ranca_upas.jpg'),
 
-            // 2. BAGIAN INFORMASI (ROW & COLUMN UNTUK IKON & TEKS)
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  // Kolom 1: Kalender (Open Everyday)
-                  Column(
-                    children: const [
-                      Icon(Icons.calendar_today),
-                      SizedBox(height: 8.0),
-                      Text('Open Everyday'),
-                    ],
+              // 2. BAGIAN JUDUL (TITLE)
+              material.Container(
+                margin: const material.EdgeInsets.only(top: 16.0),
+                child: const material.Text(
+                  'Ranca Upas',
+                  textAlign: material.TextAlign.center,
+                  style: material.TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: material.FontWeight.bold,
                   ),
-                  // Kolom 2: Jam Operasional (Access Time) - Tantangan Praktikum
-                  Column(
-                    children: const [
-                      Icon(Icons.access_time),
-                      SizedBox(height: 8.0),
-                      Text('09:00 - 20:00'),
-                    ],
-                  ),
-                  // Kolom 3: Harga Tiket (Monetization On) - Tantangan Praktikum
-                  Column(
-                    children: const [
-                      Icon(Icons.monetization_on),
-                      SizedBox(height: 8.0),
-                      Text('Rp 20.000'),
-                    ],
-                  ),
-                ],
+                ),
               ),
-            ),
 
-            // 3. BAGIAN DESKRIPSI TEMPAT WISATA
-            Container(
-              padding: const EdgeInsets.all(16.0),
-              child: const Text(
-                'Ranca Upas Ciwidey adalah kawasan bumi perkemahan di bawah pengelolaan perhutani. '
-                'Tempat ini berada di kawasan wisata Bandung Selatan, satu lokasi dengan kawah putih, '
-                'kolam Cimanggu dan situ Patenggang. Banyak hal yang bisa dilakukan di kawasan wisata ini, '
-                'seperti berkemah, berinteraksi dengan rusa, sampai bermain di water park dan mandi air panas.',
-                textAlign: TextAlign.justify,
-                style: TextStyle(fontSize: 16.0),
+              // 3. BAGIAN INFORMASI (ROW & COLUMN UNTUK IKON & TEKS)
+              material.Container(
+                margin: const material.EdgeInsets.symmetric(vertical: 16.0),
+                child: material.Row(
+                  mainAxisAlignment: material.MainAxisAlignment.spaceEvenly,
+                  children: const <material.Widget>[
+                    // Kolom 1: Kalender (Open Everyday)
+                    material.Column(
+                      children: [
+                        material.Icon(material.Icons.calendar_today),
+                        material.SizedBox(height: 8.0),
+                        material.Text('Open Everyday'),
+                      ],
+                    ),
+                    // Kolom 2: Jam Operasional (Access Time) - Tantangan Praktikum
+                    material.Column(
+                      children: [
+                        material.Icon(material.Icons.access_time),
+                        material.SizedBox(height: 8.0),
+                        material.Text('09:00 - 20:00'),
+                      ],
+                    ),
+                    // Kolom 3: Harga Tiket (Monetization On) - Tantangan Praktikum
+                    material.Column(
+                      children: [
+                        material.Icon(material.Icons.monetization_on),
+                        material.SizedBox(height: 8.0),
+                        material.Text('Rp 20.000'),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+
+              // 4. BAGIAN DESKRIPSI TEMPAT WISATA
+              material.Container(
+                padding: const material.EdgeInsets.all(16.0),
+                child: const material.Text(
+                  'Ranca Upas Ciwidey adalah kawasan bumi perkemahan di bawah pengelolaan perhutani. '
+                  'Tempat ini berada di kawasan wisata Bandung Selatan, satu lokasi dengan kawah putih, '
+                  'kolam Cimanggu dan situ Patenggang. Banyak hal yang bisa dilakukan di kawasan wisata ini, '
+                  'seperti berkemah, berinteraksi dengan rusa, sampai bermain di water park dan mandi air panas.',
+                  textAlign: material.TextAlign.justify,
+                  style: material.TextStyle(fontSize: 16.0),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,0 +1,5 @@
+name: images
+flutter:
+  uses-material-design: true
+  assets:
+    - ranca-upas.jpg
